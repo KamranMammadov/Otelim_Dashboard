@@ -1,22 +1,24 @@
 export class Room {
   id: number;
-  roomNo: string;
-  type: string;
-  acNonac: string;
-  meal: string;
+  room_No: string;
+  canSmoke:boolean;
+  haveMiniBar:boolean;
+  haveWindow:boolean;
+  price: number;
+  roomTypeId: number;
+  roomTypeName: string;
+  roomVIewId: number;
+  roomVIewName: string;
   capacity: string;
   phone: string;
-  rent: string;
   constructor(room) {
     {
       this.id = room.id || this.getRandomID();
-      this.roomNo = room.roomNo || '';
-      this.type = room.type || '';
-      this.acNonac = room.acNonac || '';
-      this.meal = room.meal || '';
+      this.room_No = room.room_No || '';
+      this.roomTypeName = room.roomTypeName || '';
       this.capacity = room.capacity || '';
       this.phone = room.phone || '';
-      this.rent = room.rent || '';
+      this.price = room.price || 0;
     }
   }
   public getRandomID(): string {

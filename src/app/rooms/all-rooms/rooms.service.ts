@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Room } from './rooms.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable()
 export class RoomService {
   private readonly API_URL = 'assets/data/rooms.json';
@@ -18,10 +19,11 @@ export class RoomService {
   }
   /** CRUD METHODS */
   getAllRooms(): void {
-    this.httpClient.get<Room[]>(this.API_URL).subscribe(
+    this.httpClient.get<Room[]>(`${environment.apiUrl}/HotelRoom`).subscribe(
       (data) => {
         this.isTblLoading = false;
         this.dataChange.next(data);
+        console.log(data);
       },
       (error: HttpErrorResponse) => {
         this.isTblLoading = false;

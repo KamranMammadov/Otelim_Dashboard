@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
  // apiUrl: 'http://localhost:4200',
-  apiUrl: 'http://localhost:54668/api'
+  //apiUrl: 'http://localhost:54668/api'
+  apiUrl: 'http://api.otelim.az/api'
 };
 
 /*

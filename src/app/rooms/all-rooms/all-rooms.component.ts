@@ -22,14 +22,16 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class AllroomComponent implements OnInit {
   displayedColumns = [
     'select',
-    'roomNo',
-    'type',
-    'acNonac',
-    'meal',
+    'room_No',
+    'roomTypeName',
+    'haveMiniBar',
+    'canSmoke',
+    'haveWindow',
     'capacity',
     'phone',
-    'rent',
-    'actions',
+    'price',
+    'roomVIewName',
+    'actions'
   ];
   exampleDatabase: RoomService | null;
   dataSource: ExampleDataSource | null;
@@ -237,10 +239,10 @@ export class ExampleDataSource extends DataSource<Room> {
           .slice()
           .filter((room: Room) => {
             const searchStr = (
-              room.roomNo +
-              room.type +
-              room.acNonac +
-              room.meal +
+              room.room_No +
+              room.roomTypeName +
+              room.roomVIewName +
+              room.price +
               room.capacity +
               room.phone
             ).toLowerCase();
@@ -271,17 +273,17 @@ export class ExampleDataSource extends DataSource<Room> {
         case 'id':
           [propertyA, propertyB] = [a.id, b.id];
           break;
-        case 'roomNo':
-          [propertyA, propertyB] = [a.roomNo, b.roomNo];
+        case 'room_No':
+          [propertyA, propertyB] = [a.room_No, b.room_No];
           break;
-        case 'type':
-          [propertyA, propertyB] = [a.type, b.type];
+        case 'roomTypeName':
+          [propertyA, propertyB] = [a.roomTypeName, b.roomTypeName];
           break;
-        case 'acNonac':
-          [propertyA, propertyB] = [a.acNonac, b.acNonac];
+        case 'price':
+          [propertyA, propertyB] = [a.price, b.price];
           break;
-        case 'meal':
-          [propertyA, propertyB] = [a.meal, b.meal];
+        case 'roomVIewName':
+          [propertyA, propertyB] = [a.roomVIewName, b.roomVIewName];
           break;
         case 'capacity':
           [propertyA, propertyB] = [a.capacity, b.capacity];

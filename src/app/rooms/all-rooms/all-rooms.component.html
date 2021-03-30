@@ -33,7 +33,8 @@
                           <ul class="header-buttons-left ml-0">
                             <li class="dropdown">
                               <h2>
-                                <strong>Rooms</strong></h2>
+                                <strong>Rooms</strong>
+                              </h2>
                             </li>
                             <li class="dropdown m-l-20">
                               <label for="search-input"><i class="material-icons search-icon">search</i></label>
@@ -93,32 +94,41 @@
                         </mat-header-cell>
                         <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
                       </ng-container>
-                      <ng-container matColumnDef="roomNo">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>Room No
+                      <ng-container matColumnDef="room_No">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>No
                         </mat-header-cell>
-                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.roomNo}}
+                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.room_No}}
                         </mat-cell>
                       </ng-container>
-                      <ng-container matColumnDef="type">
+                      <ng-container matColumnDef="haveMiniBar">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Mini Bar
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> 
+                          <div *ngIf="row.haveMiniBar;then haveMinibar else haveNotMinibar">here is ignored</div>
+                          <ng-template #haveMinibar>+</ng-template>
+                          <ng-template #haveNotMinibar>-</ng-template>
+                        </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="roomTypeName">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Type
                         </mat-header-cell>
                         <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
-                          {{row.type}}</mat-cell>
+                          {{row.roomTypeName}}</mat-cell>
                       </ng-container>
-                      <ng-container matColumnDef="acNonac">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>AC/Non AC
+                      <ng-container matColumnDef="price">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Price
                         </mat-header-cell>
-                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.acNonac}}
+                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.price}}
                         </mat-cell>
                       </ng-container>
-                      <ng-container matColumnDef="meal">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>Meal
+                      <ng-container matColumnDef="roomVIewName">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>View
                         </mat-header-cell>
-                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.meal}}
+                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.roomVIewName}}
                         </mat-cell>
                       </ng-container>
                       <ng-container matColumnDef="capacity">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>Bad Capacity
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Capacity
                         </mat-header-cell>
                         <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.capacity}}
                         </mat-cell>
@@ -129,11 +139,25 @@
                         <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"> {{row.phone}}
                         </mat-cell>
                       </ng-container>
-                      <ng-container matColumnDef="rent">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>Rent
+    
+
+                      <ng-container matColumnDef="haveWindow">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Window
                         </mat-header-cell>
                         <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
-                          {{row.rent}}</mat-cell>
+                          <div *ngIf="row.haveWindow;then content else other_content">here is ignored</div>
+                          <ng-template #content>+</ng-template>
+                          <ng-template #other_content>-</ng-template>
+                        </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="canSmoke">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Smoke
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                          <div *ngIf="row.canSmoke;then content else other_content">here is ignored</div>
+                          <ng-template #content><img width="20" src="assets/images/check.png"/></ng-template>
+                          <ng-template #other_content>-</ng-template>
+                        </mat-cell>
                       </ng-container>
                       <!-- actions -->
                       <ng-container matColumnDef="actions">

@@ -50,13 +50,13 @@ export class FormDialogComponent {
   createContactForm(): FormGroup {
     return this.fb.group({
       id: [this.room.id],
-      roomNo: [this.room.roomNo],
-      type: [this.room.type],
-      acNonac: [this.room.acNonac],
-      meal: [this.room.meal],
-      capacity: [this.room.capacity],
-      phone: [this.room.phone],
-      rent: [this.room.rent]
+      room_No: [this.room.room_No],
+      // type: [this.room.type],
+      // acNonac: [this.room.acNonac],
+      // meal: [this.room.meal],
+      // capacity: [this.room.capacity],
+      // phone: [this.room.phone],
+      // rent: [this.room.rent]
     });
   }
   submit() {
